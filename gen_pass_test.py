@@ -8,3 +8,7 @@ class TestGenPass(unittest.TestCase):
     expected = str
     self.assertEqual(type(actual), expected)
 
+  def test_returns_correct_string_length(self):
+    actual = gen_pass.generate_password(10)
+    expected = 10
+    self.assertEqual(len(actual), expected)
