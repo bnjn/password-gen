@@ -4,6 +4,7 @@ import unittest
 class TestGenPass(unittest.TestCase):
 
   def test_returns_string(self):
-    actual = generate_password()
-    expected = ''
-    self.assertEqual(actual, expected)
+    actual = gen_pass.generate_password(2)
+    expected = str
+    self.assertEqual(type(actual), expected)
+
