@@ -17,5 +17,11 @@ class TestGenPass(unittest.TestCase):
     with self.assertRaises(TypeError):
       gen_pass.generate_password('potato')
 
+  def test_returns_different_passwords(self):
+    first_gen = gen_pass.generate_password(6)
+    second_gen = gen_pass.generate_password(6)
+
+    self.assertNotEqual(first_gen, second_gen)
+
 if __name__ == '__main__': 
     unittest.main()
