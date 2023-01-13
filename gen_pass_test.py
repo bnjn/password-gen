@@ -14,6 +14,8 @@ class TestGenPass(unittest.TestCase):
     self.assertEqual(len(actual), expected)
 
   def test_throw_typeerror_on_invalid_input(self):
-    actual = gen_pass.generate_password('potato')
-    expected = TypeError
-    self.assertEqual(actual, expected)
+    with self.assertRaises(TypeError):
+      gen_pass.generate_password('potato')
+
+if __name__ == '__main__': 
+    unittest.main()
