@@ -35,8 +35,17 @@ class TestGenPass(unittest.TestCase):
 
   def test_does_not_return_same_chars(self):
     actual = gen_pass.generate_password(12)
-    different_chars = len(set(list(actual))) > 1
-    self.assertTrue(different_chars)
+    uniq_chars = set(list(actual))
+    self.assertTrue(len(uniq_chars) > 1)
+
+  def test_if_password_contains_numbers(self):
+    actual  = gen_pass.generate_password(20)
+    regex = '[0-9]+'
+    self.assertRegex(actual, regex)
+
+  def test_raises_type_error_if_length_over_hundred(self):
+    with self.assertRaises(ValueError):
+      gen_pass.generate_password(101)
 
 if __name__ == '__main__': 
     unittest.main()
