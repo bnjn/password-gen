@@ -25,6 +25,7 @@ class TestGenPass(unittest.TestCase):
     first_gen = gen_pass.generate_password(6)
     second_gen = gen_pass.generate_password(6)
     loop_number = 0
+    # Guard against chance of identical password edge case
     while first_gen == second_gen:
       if loop_number > 100:
         break
