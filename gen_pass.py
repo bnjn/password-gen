@@ -1,5 +1,6 @@
 import string
 import random
+import re
 
 def generate_password(length, special=None):
   if type(length) != int:
@@ -18,3 +19,12 @@ def generate_password(length, special=None):
   for i in range(length):
     password += random.choice(chars)
   return password
+
+if __name__ == '__main__':
+  pass_length = int(input('Length of password (2-100): '))
+  special_chars = input('Special characters? (Yes/No/Y/N): ').lower()
+
+  if re.match('(yes)|(y)', special_chars) == None:
+    print(generate_password(pass_length))
+  else:
+    print(generate_password(pass_length, True))
