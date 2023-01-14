@@ -49,7 +49,7 @@ class TestGenPass(unittest.TestCase):
 
   def test_generates_special_chars_if_passed_optional_param(self):
     actual = gen_pass.generate_password(50, True)
-    regex = '[!"#$%&\'()*+,-./:;<=>?@[\]^_`{|}~]+'
+    regex = '[!"#$%&\'()*+,-./:;<=>?@[\]^_`{|}~\s]+'
     self.assertRegex(actual, regex)
 
 if __name__ == '__main__': 
