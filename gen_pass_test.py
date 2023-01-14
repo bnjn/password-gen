@@ -47,5 +47,10 @@ class TestGenPass(unittest.TestCase):
     with self.assertRaises(ValueError):
       gen_pass.generate_password(101)
 
+  def test_generates_special_chars_if_passed_optional_param(self):
+    actual = gen_pass.generate_password(50, True)
+    regex = '[!"#$%&\'()*+,-./:;<=>?@[\]^_`{|}~]+'
+    self.assertRegex(actual, regex)
+
 if __name__ == '__main__': 
     unittest.main()
