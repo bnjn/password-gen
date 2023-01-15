@@ -5,6 +5,8 @@ import re
 def generate_password(length, special=None):
   if type(length) != int:
     raise TypeError('Integers are the only valid input.')
+  elif special != None and type(special) != bool:
+    raise ValueError('Must be bool or none.')
   elif length < 2:
     raise ValueError('Length must be two or more.')
   elif length > 100:
